@@ -963,6 +963,7 @@ GameObject:
   - component: {fileID: 789653303}
   - component: {fileID: 789653305}
   - component: {fileID: 789653304}
+  - component: {fileID: 789653306}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -1020,6 +1021,19 @@ MonoBehaviour:
   amountEmptySegments: 2
   minAmountTrapSegments: 1
   maxAmountTrapSegments: 3
+--- !u!114 &789653306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789653302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23546d191f35c8498f17f43cb9efaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballController: {fileID: 1078838525}
 --- !u!1 &878507765
 GameObject:
   m_ObjectHideFlags: 0
