@@ -124,6 +124,7 @@ MonoBehaviour:
   ball: {fileID: 5466221680506471839}
   ballMaterial: {fileID: 2100000, guid: 07881de4dfcc81c41921c4df1e96811c, type: 2}
   level: {fileID: 0}
+  trailCollector: {fileID: 0}
 --- !u!1 &8288388854609183457
 GameObject:
   m_ObjectHideFlags: 0

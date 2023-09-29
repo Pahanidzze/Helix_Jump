@@ -6,6 +6,7 @@ public class BallTrail : BallEvents
     [SerializeField] Transform ball;
     [SerializeField] Material ballMaterial;
     [SerializeField] Transform level;
+    [SerializeField] TrailCollector trailCollector;
 
     private void Start()
     {
@@ -26,5 +27,6 @@ public class BallTrail : BallEvents
         Vector3 blotPosition = new(ball.position.x, ball.position.y + 0.51f, ball.position.z);
         GameObject currentBlot = Instantiate(blotPrefub, blotPosition, blotPrefub.transform.rotation, level);
         currentBlot.transform.Rotate(0, 0, Random.Range(0f, 360f));
+        trailCollector.AddTrail(currentBlot);
     }
 }

@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 209956908}
   - component: {fileID: 209956909}
   - component: {fileID: 209956910}
+  - component: {fileID: 209956911}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -419,6 +420,18 @@ MonoBehaviour:
   - {r: 0.6707013, g: 0.9056604, b: 0.8786719, a: 1}
   - {r: 0.7110807, g: 0.68369526, b: 0.8679245, a: 1}
   - {r: 0.8509804, g: 0.7663558, b: 0.63529414, a: 1}
+--- !u!114 &209956911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209956904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8e525ba15ea96419693105acd06a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382070393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballController: {fileID: 1078838525}
+  trailCollector: {fileID: 209956911}
 --- !u!1 &878507765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,6 +2624,10 @@ PrefabInstance:
       propertyPath: level
       value: 
       objectReference: {fileID: 789653303}
+    - target: {fileID: 2402073549944173586, guid: e4701d76be22e3f489d3114e4f603ef4, type: 3}
+      propertyPath: trailCollector
+      value: 
+      objectReference: {fileID: 209956911}
     - target: {fileID: 5466221680506471839, guid: e4701d76be22e3f489d3114e4f603ef4, type: 3}
       propertyPath: m_RootOrder
       value: 3

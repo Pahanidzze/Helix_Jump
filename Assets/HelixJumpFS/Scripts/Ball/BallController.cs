@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(BallMovement))]
-public class BallController : MonoBehaviour
+public class BallController : OneTrigger
 {
     private BallMovement model;
     [HideInInspector] public UnityEvent<SegmentType> EnterTrigger;
@@ -13,27 +13,32 @@ public class BallController : MonoBehaviour
         model = GetComponent<BallMovement>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override Segment OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Segment segment) == false) return;
+        Segment segment = base.OnTriggerEnter(other);
 
-        if (segment.Type == SegmentType.Default)
+        if (segment != null)
         {
-            model.Jump();
+            if (segment.Type == SegmentType.Default)
+            {
+                model.Jump();
+            }
+            else if (segment.Type == SegmentType.Empty)
+            {
+                model.Fall(segment.transform.position.y);
+            }
+            else if (segment.Type == SegmentType.Trap)
+            {
+                model.Stop();
+            }
+            else if (segment.Type == SegmentType.Finish)
+            {
+                model.Stop();
+            }
+            EnterTrigger.Invoke(segment.Type);
+            EnterFloorTrigger.Invoke(segment.Type, segment.gameObject.GetComponentInParent<Floor>());
         }
-        else if (segment.Type == SegmentType.Empty)
-        {
-            model.Fall(segment.transform.position.y);
-        }
-        else if (segment.Type == SegmentType.Trap)
-        {
-            model.Stop();
-        }
-        else if (segment.Type == SegmentType.Finish)
-        {
-            model.Stop();
-        }
-        EnterTrigger.Invoke(segment.Type);
-        EnterFloorTrigger.Invoke(segment.Type, segment.gameObject.GetComponentInParent<Floor>());
+
+        return segment;
     }
 }
